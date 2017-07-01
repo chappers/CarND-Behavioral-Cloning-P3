@@ -1,7 +1,4 @@
-
-# coding: utf-8
-
-# In[7]:
+# this one is trained vs udacity sample data...
 
 import csv
 import numpy as np
@@ -19,7 +16,7 @@ from sklearn.utils import shuffle
 import matplotlib.pyplot as plt
 
 lines = []
-with open('./data_recordings/center_lane/driving_log.csv') as csvfile:
+with open('./data/driving_log.csv') as csvfile:
     reader = csv.reader(csvfile)
     for line in reader:
         lines.append(line)
@@ -70,5 +67,5 @@ model.compile(loss='mse', optimizer='adam')
 model.fit(X_train, y_train, validation_split=0.2, shuffle=True)
 
 
-model.save('model_20170701_1545.h5')
+model.save('model_vanilla.h5')
 
