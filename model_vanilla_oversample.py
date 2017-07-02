@@ -111,17 +111,30 @@ with open('./turn-no-lines/driving_log.csv') as csvfile:
     for line in reader:
         bridge_lines.append(line)
 
+with open('./aggressive-turn2/driving_log.csv') as csvfile:
+    reader = csv.reader(csvfile)
+    for line in reader:
+        bridge_lines.append(line)
+
 with open('./aggressive-turn/driving_log.csv') as csvfile:
     reader = csv.reader(csvfile)
     for line in reader:
         bridge_lines.append(line)
+
+with open('./aggressive-turn3/driving_log.csv') as csvfile:
+    reader = csv.reader(csvfile)
+    for line in reader:
+        bridge_lines.append(line)
+
 
 bridge_images, bridge_measurements = [], []
 for line in bridge_lines:
     source_path = line[0]
     image = cv2.imread(source_path)
     bridge_images.append(image)
+    bridge_images.append(image)
     measurement = float(line[3])
+    bridge_measurements.append(measurement)
     bridge_measurements.append(measurement)
     
 
