@@ -4,8 +4,8 @@ recordings2/*
 data_recordings/*
 sample1/*
 .ipynb*
-*.h5
 aggressive-turn/*
 turn-no-lines/*
 *.jpg
 *.csv
+*.h5
