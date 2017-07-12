@@ -159,7 +159,7 @@ Other notes:
 *  I believe modifying drive.py and retraining with speed component is important for success in track 2, as in the video for track 2 (`video_test1.mp4`) shows that driving at set speed of 20mph is simply too fast. 
 
 
-Here is a video recording of track 1 being complete (and track 2 failure). This one isn't as new as the one in the repository, but should give a sense of what can be done using only track 1 data. 
+Here is a video recording of track 1 being complete (and track 2 failure). This one isn't as new as the one in the repository, but should give a sense of what can be done using only track 1 data: 
 
 [![screenshot.png](screenshot.png)](https://www.youtube.com/watch?v=juT66CbOJpo)
 
