@@ -89,7 +89,8 @@ def add_all_data_log(path):
     return images, measurements
 
 paths = ['./data/driving_log.csv', 
-         './bridge-correction/driving_log.csv']
+         './bridge-correction/driving_log.csv', 
+         './track2/driving_log.csv']
 
 images = []
 measurements = []
@@ -131,5 +132,5 @@ model.compile(loss='mse', optimizer='adam')
 model.fit(X_train, y_train, validation_split=0.2, shuffle=True, epochs=3)
 
 
-model.save('model_20170707.h5')
+model.save('model_20170712.h5')
 
