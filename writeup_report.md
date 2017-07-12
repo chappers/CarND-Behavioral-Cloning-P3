@@ -161,7 +161,7 @@ Other notes:
 
 Here is a video recording of track 1 being complete (and track 2 failure). This one isn't as new as the one in the repository, but should give a sense of what can be done using only track 1 data. 
 
-[![screenshot.png][screenshot.png]](https://www.youtube.com/watch?v=juT66CbOJpo "Self Driving Car udacity track 1 ")
+[![screenshot.png](screenshot.png)](https://www.youtube.com/watch?v=juT66CbOJpo)
 
 
 
