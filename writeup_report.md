@@ -1,8 +1,8 @@
-#**Behavioral Cloning** 
+# Behavioral Cloning
 
-##Writeup Template
+## Writeup Template
 
-###You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
+### You can use this file as a template for your writeup if you want to submit it as a markdown file, but feel free to use some other method and submit a pdf if you prefer.
 
 ---
 
@@ -22,20 +22,27 @@ The goals / steps of this project are the following:
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
-###Files Submitted & Code Quality
+
+### Files Submitted & Code Quality
 
 #### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:  
 
 * model.py containing the script to create and train the model
+* model_track2.py containing the script to create and train the model (using personal GPU on Keras 2+)
+* model_track2_generator.py containing the script to create and train the model with a generator - this worked but didn't seem to contribute much with more training data (using personal GPU on Keras 2+)
+
 * drive.py for driving the car in autonomous mode
+
 * model.h5 containing a trained convolution neural network 
 * model_20170712.h5 contains the best network for track 2 (seems to work mostly okay for track 1 as well)
-* writeup_report.md 
+
 * video_20170707_new.mp4 example created using Keras 2.X with GPU
 * video.mp4 example created using environment setup for nanodegree
 * video_test1.mp4 example for track 1 and track 2
+
+* writeup_report.md 
 
 #### 2. Submission includes functional code
 
@@ -89,6 +96,12 @@ However this allowed me to speed up the neural net building by over 20x compared
 *  Rebuild network (2-3 minutes)
 *  Re-attempt track
 
+![training-extra-examples](training-extra-examples.png)
+
+![training-extra-examples2](training-extra-examples2.png)
+
+The training logs were also manually altered if needed (see above). 
+
 Eventually I added the left and right cameras with steering adjustment which also helped the performance. 
 
 Some other things which I experimented with was initially the car had problems past the bridge. What seemed to help was increasing the maximum speed as the angle in the examples I had provided was not sufficient to turn the corner at low speeds. 
@@ -97,17 +110,25 @@ Some other things which I experimented with was initially the car had problems p
 
 The final model architecture (model.py lines 114-128) consisted of a convolution neural network with the following layers and layer sizes as shown here (https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/)
 
-1.  Crop the image using parameters `((70, 25), (30, 30))`
-2.  Convolution2D filters: 24 with 5x5 kernel and relu activation
-3.  Convolution2D filters: 36 with 5x5 kernel and relu activation
-4.  Convolution2D filters: 48 with 5x5 kernel and relu activation
-5.  Convolution2D filters: 64 with 3x3 kernel and relu activation
+1.  Normalise the image 
+2.  Crop the image using parameters `((70, 25), (30, 30))`
+3.  Convolution2D filters: 24 with 5x5 kernel and relu activation
+4.  Convolution2D filters: 36 with 5x5 kernel and relu activation
+5.  Convolution2D filters: 48 with 5x5 kernel and relu activation
 6.  Convolution2D filters: 64 with 3x3 kernel and relu activation
-7.  Flatten + Dense 100
-8.  Dense 50
-9.  Dense 10
-10. Dense 1 (driving control is only the angle)
+7.  Convolution2D filters: 64 with 3x3 kernel and relu activation
+8.  Flatten + Dense 100
+9.  Dense 50
+10. Dense 10
+11. Dense 1 (driving control is only the angle)
 
+Before cropping:
+
+![center_raw.png](center_raw.png)
+
+After cropping settings:
+
+![center_crop.png](center_crop.png)
 
 #### 3. Creation of the Training Set & Training Process
 

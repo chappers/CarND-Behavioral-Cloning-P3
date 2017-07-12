@@ -90,6 +90,7 @@ def add_all_data_log(path):
 
 paths = ['./data/driving_log.csv', 
          './bridge-correction/driving_log.csv', 
+         './correction/driving_log.csv', 
          './track2/driving_log.csv']
 
 images = []
