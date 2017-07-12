@@ -29,18 +29,28 @@ The goals / steps of this project are the following:
 
 My project includes the following files:  
 
-* model.py containing the script to create and train the model
-* model_track2.py containing the script to create and train the model (using personal GPU on Keras 2+)
-* model_track2_generator.py containing the script to create and train the model with a generator - this worked but didn't seem to contribute much with more training data (using personal GPU on Keras 2+)
+**models**
 
-* drive.py for driving the car in autonomous mode
+* `model.py` containing the script to create and train the model
+* `model_track2.py` containing the script to create and train the model (using personal GPU on Keras 2+)
+* `model_track2_generator.py` containing the script to create and train the model with a generator - this worked but didn't seem to contribute much with more training data (using personal GPU on Keras 2+)
 
-* model.h5 containing a trained convolution neural network 
-* model_20170712.h5 contains the best network for track 2 (seems to work mostly okay for track 1 as well)
+**drive.py**
 
-* video_20170707_new.mp4 example created using Keras 2.X with GPU
-* video.mp4 example created using environment setup for nanodegree
-* video_test1.mp4 example for track 1 and track 2
+* `drive.py` for driving the car in autonomous mode - a few adjustments such as set speed was made
+
+**CNN model files** 
+
+* `model.h5` containing a trained convolution neural network 
+* `model_20170712.h5` contains the best network for track 2 (seems to work mostly okay for track 1 as well)
+
+**video files**
+
+* `video.mp4` example created using environment setup for nanodegree
+* `video_20170707_new.mp4` example created using Keras 2.X with GPU
+* `video_test1.mp4` example for track 1 and track 2
+
+**write up**
 
 * writeup_report.md 
 
@@ -147,4 +157,18 @@ I finally randomly shuffled the data set and put 20% of the data into a validati
 Other notes: 
 
 *  I believe modifying drive.py and retraining with speed component is important for success in track 2, as in the video for track 2 (`video_test1.mp4`) shows that driving at set speed of 20mph is simply too fast. 
+
+
+Here is a video recording of track 1 being complete (and track 2 failure). This one isn't as new as the one in the repository, but should give a sense of what can be done using only track 1 data. 
+
+[![vid][imgg]](https://www.youtube.com/watch?v=juT66CbOJpo "Self Driving Car udacity track 1 ")
+
+
+
+
+
+
+
+
+
 
