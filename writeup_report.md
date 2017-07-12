@@ -17,17 +17,8 @@ The goals / steps of this project are the following:
 * Summarize the results with a written report
 
 
-[//]: # (Image References)
-
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
-
 ## Rubric Points
+
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
@@ -40,9 +31,11 @@ My project includes the following files:
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
+* model_20170712.h5 contains the best network for track 2 (seems to work mostly okay for track 1 as well)
 * writeup_report.md 
 * video_20170707_new.mp4 example created using Keras 2.X with GPU
 * video.mp4 example created using environment setup for nanodegree
+* video_test1.mp4 example for track 1 and track 2
 
 #### 2. Submission includes functional code
 
@@ -90,7 +83,7 @@ From an implementation perspective it was noted that the default PIL image proce
 
 On my computer I have available nVidia GPU, which I was able to successfully install Keras 2.X on (unfortunately this is a different version to the provided environment snapshot). 
 
-However this allowed me to speed up the neural net building by over 10x. The process worked as follows:
+However this allowed me to speed up the neural net building by over 20x compared with GPU. The process worked as follows:
 
 *  Place in training data
 *  Rebuild network (2-3 minutes)
@@ -99,8 +92,6 @@ However this allowed me to speed up the neural net building by over 10x. The pro
 Eventually I added the left and right cameras with steering adjustment which also helped the performance. 
 
 Some other things which I experimented with was initially the car had problems past the bridge. What seemed to help was increasing the maximum speed as the angle in the examples I had provided was not sufficient to turn the corner at low speeds. 
-
-
 
 #### 2. Final Model Architecture
 
@@ -122,7 +113,7 @@ The final model architecture (model.py lines 114-128) consisted of a convolution
 
 I found trying to capture "good" behavior was sufficient in generating a car which would successfully drive around the track. 
 
-It was important to provide examples over portions of the track (at least in recording), because it is fairly difficult to drive "perfectly" for the _whole_ track and much easier to focus on small portions. 
+It was important to provide examples over portions of the track (at least in recording), because it is fairly difficult to drive "perfectly" for the _whole_ track and much easier to focus on small portions. This was done for both track 1 and track 2. 
 
 The recovery moves were not totally necessary, as I found that sometimes it would result in "worse" behavior. Rather, driving aggressively around corners was helpful (especially past the bridge) in training the car to make steeper turns.
 
@@ -131,4 +122,8 @@ To augment the data sat, I also flipped images and angles in order to provide mo
 Further improvements could be completed by making sure the angles were "smoother". I had toyed with this idea, however with manually pruning the driving log files, this made it very complicated with only marginal improvement. 
 
 I finally randomly shuffled the data set and put 20% of the data into a validation set. 
+
+Other notes: 
+
+*  I believe modifying drive.py and retraining with speed component is important for success in track 2, as in the video for track 2 (`video_test1.mp4`) shows that driving at set speed of 20mph is simply too fast. 
 
